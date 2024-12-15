@@ -1,0 +1,53 @@
+{
+  "name": "agrotm-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky",
+    "eslint": "eslint --ext .ts,.tsx src",
+    "eslint:fix": "eslint --ext .ts,.tsx --quiet --fix src"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.0",
+    "@ant-design/static-style-extract": "^1.0.2",
+    "@emailjs/browser": "^4.4.1",
+    "antd": "4.23.5",
+    "axios": "^0.27.2",
+    "chart.js": "^4.4.7",
+    "motion": "^11.13.5",
+    "next": "12.1.5",
+    "react": "18.1.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "18.1.0",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/node": "17.0.30",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.2.19",
+    "@types/styled-components": "^5.1.22",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "babel-plugin-import": "^1.13.3",
+    "eslint": "^8.8.0",
+    "eslint-config-next": "12.1.5",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^9.0.11",
+    "jest": "^28.0.3",
+    "prettier": "^2.5.1",
+    "typescript": "4.6.4"
+  },
+  "resolutions": {
+    "@types/react": "^18.0.0"
+  }
+}
