@@ -1,6 +1,6 @@
 import CaminhoesIMG from "~/assets/images/caminhoes.png";
 import MilhoIMG from "~/assets/images/milho.png";
-import PlantacaoIMG from "~/assets/images/PLANTACAO.png";
+import PlantacaoIMG from "~/assets/images/plantacao.png";
 import SojaIMG from "~/assets/images/soja.png";
 import TrigoIMG from "~/assets/images/trigo.png";
 import Divider from "~/components/Divider";
