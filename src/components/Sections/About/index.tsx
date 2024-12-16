@@ -42,6 +42,7 @@ const About: FC = (): ReactElement => {
               width={300}
               height={300}
               quality={100}
+              loading="lazy"
               unoptimized
             />
           </S.ImageWrapper>
@@ -59,6 +60,7 @@ const About: FC = (): ReactElement => {
               width={300}
               height={300}
               quality={100}
+              loading="lazy"
               unoptimized
             />
           </S.ImageWrapper>
@@ -77,6 +79,7 @@ const About: FC = (): ReactElement => {
               height={300}
               quality={100}
               unoptimized
+              loading="lazy"
             />
           </S.ImageWrapper>
         </motion.div>
@@ -94,6 +97,7 @@ const About: FC = (): ReactElement => {
               height={300}
               quality={100}
               unoptimized
+              loading="lazy"
             />
           </S.ImageWrapper>
         </motion.div>
@@ -111,6 +115,7 @@ const About: FC = (): ReactElement => {
               height={300}
               quality={100}
               unoptimized
+              loading="lazy"
             />
           </S.ImageWrapper>
         </motion.div>

@@ -28,7 +28,13 @@ const Header: FC = (): ReactElement => {
     <S.Container>
       <S.NavbarWrapper>
         <S.SectionImage>
-          <Image src={Logo} alt="logo-agrotm" height={56} width={56} />
+          <Image
+            src={Logo}
+            alt="logo-agrotm"
+            height={56}
+            width={56}
+            loading="lazy"
+          />
         </S.SectionImage>
 
         <S.HamburgerButton onClick={() => setMenuOpen(!menuOpen)}>

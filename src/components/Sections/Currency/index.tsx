@@ -71,6 +71,7 @@ const Currency: FC = (): ReactElement => {
             width={50}
             height={50}
             quality={90}
+            loading="lazy"
           />
 
           <S.TitleCurrency>
@@ -89,6 +90,7 @@ const Currency: FC = (): ReactElement => {
             width={50}
             height={50}
             quality={90}
+            loading="lazy"
           />
 
           <S.TitleCurrency>

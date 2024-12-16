@@ -31,6 +31,7 @@ const ItemNews: FC<ItemNewsProps> = ({ data }): ReactElement => {
               width={200}
               height={200}
               quality={90}
+              loading="lazy"
             />
           </S.ImageNotFound>
         )}
