@@ -1,7 +1,7 @@
 import { InboxOutlined } from "@ant-design/icons";
 import emailjs from "@emailjs/browser";
 import Title from "~/components/Typography/Title";
-import { Upload, message, Button, Form, Input } from "antd";
+import { Upload, message, Form, Input, Button } from "antd";
 import axios from "axios";
 import React, { FC, ReactElement, useEffect, useState } from "react";
 
@@ -154,7 +154,7 @@ const WorkWithUs: FC = (): ReactElement => {
             type="primary"
             onClick={handleSendEmail}
             loading={loading}
-            disabled={loading || !fileUrl}
+            disabled={loading}
           >
             <span>Enviar</span>
           </Button>

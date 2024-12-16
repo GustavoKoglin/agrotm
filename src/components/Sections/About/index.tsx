@@ -39,6 +39,8 @@ const About: FC = (): ReactElement => {
             <Image
               src={PlantacaoIMG}
               alt="logo-plantacao"
+              width={300}
+              height={300}
               quality={100}
               unoptimized
             />
@@ -54,6 +56,8 @@ const About: FC = (): ReactElement => {
             <Image
               src={CaminhoesIMG}
               alt="logo-caminhoes"
+              width={300}
+              height={300}
               quality={100}
               unoptimized
             />
@@ -66,7 +70,14 @@ const About: FC = (): ReactElement => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         >
           <S.ImageWrapper>
-            <Image src={SojaIMG} alt="logo-soja" quality={100} unoptimized />
+            <Image
+              src={SojaIMG}
+              alt="logo-soja"
+              width={300}
+              height={300}
+              quality={100}
+              unoptimized
+            />
           </S.ImageWrapper>
         </motion.div>
 
@@ -76,7 +87,14 @@ const About: FC = (): ReactElement => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.9 }}
         >
           <S.ImageWrapper>
-            <Image src={TrigoIMG} alt="logo-trigo" quality={100} unoptimized />
+            <Image
+              src={TrigoIMG}
+              alt="logo-trigo"
+              width={300}
+              height={300}
+              quality={100}
+              unoptimized
+            />
           </S.ImageWrapper>
         </motion.div>
 
@@ -86,7 +104,14 @@ const About: FC = (): ReactElement => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.9 }}
         >
           <S.ImageWrapper>
-            <Image src={MilhoIMG} alt="logo-milho" quality={100} unoptimized />
+            <Image
+              src={MilhoIMG}
+              alt="logo-milho"
+              width={300}
+              height={300}
+              quality={100}
+              unoptimized
+            />
           </S.ImageWrapper>
         </motion.div>
       </S.Emphasis>

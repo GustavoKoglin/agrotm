@@ -11,6 +11,14 @@ const onRequest =
   (accessToken: string | undefined) =>
     (config: AxiosRequestConfig): AxiosRequestConfig => {
       if (!accessToken) return config;
+
+      return {
+        ...config,
+        headers: {
+          ...config.headers,
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
     };
 
 const onRequestError = (error: AxiosError): Promise<AxiosError> =>
@@ -27,8 +35,8 @@ const onResponseError = (error: AxiosError): Promise<AxiosError> => {
 function useAxios(): AxiosInstance {
   const token =
     typeof window !== "undefined"
-      ? localStorage.getItem("@auth/access_token")
-      : null;
+      ? localStorage.getItem("@auth/access_token") ?? undefined
+      : undefined;
 
   const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API,

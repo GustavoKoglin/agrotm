@@ -4,7 +4,7 @@ import TitleComponent from "~/components/Typography/Title";
 import useExchangeRateService, {
   ExchangeRateData,
 } from "~/lib/services/currency";
-import { Button, Col, InputNumber, Row, Select, Spin } from "antd";
+import { Col, InputNumber, Row, Select, Spin } from "antd";
 import {
   Chart as ChartJS,
   CategoryScale,

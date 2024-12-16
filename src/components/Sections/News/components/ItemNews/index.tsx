@@ -20,26 +20,26 @@ const ItemNews: FC<ItemNewsProps> = ({ data }): ReactElement => {
   return (
     <S.Container>
       <Link href={data.link} passHref>
-        <a target="_blank">
-          {data.image_url ? (
-            <S.BannerNews src={data.image_url} />
-          ) : (
-            <S.ImageNotFound>
-              <Image
-                src={NewsIMG}
-                alt="logo-euro"
-                width={200}
-                height={200}
-                quality={90}
-              />
-            </S.ImageNotFound>
-          )}
-          <S.Title>{data.title}</S.Title>
+        {/* <a target="_blank"> */}
+        {data.image_url ? (
+          <S.BannerNews src={data.image_url} />
+        ) : (
+          <S.ImageNotFound>
+            <Image
+              src={NewsIMG}
+              alt="logo-euro"
+              width={200}
+              height={200}
+              quality={90}
+            />
+          </S.ImageNotFound>
+        )}
+        <S.Title>{data.title}</S.Title>
 
-          {data.description && (
-            <S.Content>{handleFormattContent(data.description)}</S.Content>
-          )}
-        </a>
+        {data.description && (
+          <S.Content>{handleFormattContent(data.description)}</S.Content>
+        )}
+        {/* </a> */}
       </Link>
     </S.Container>
   );

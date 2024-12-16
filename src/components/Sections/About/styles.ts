@@ -47,11 +47,6 @@ const ImageWrapper = styled.div`
       border-radius: 8px;
     }
   }
-
-  @media (max-width: 1024px) {
-    width: 240px;
-    height: 240px;
-  }
 `;
 
 export default {

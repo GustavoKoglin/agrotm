@@ -1,4 +1,4 @@
-import SojaIMG from "~/assets/images/soja.png";
+import SojaIMG from "~/assets/images/soja-web.jpg";
 import styled from "styled-components";
 
 export const Banner = styled.div`
