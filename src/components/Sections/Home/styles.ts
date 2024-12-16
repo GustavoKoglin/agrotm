@@ -1,3 +1,4 @@
+import AgroIMG from "~/assets/images/agro.jpg";
 import SojaIMG from "~/assets/images/soja-web.jpg";
 import styled from "styled-components";
 
@@ -23,6 +24,7 @@ export const Banner = styled.div`
 
   @media (max-width: 768px) {
     min-height: calc(60vh);
+    background-image: url(${AgroIMG.src});
   }
 `;
 

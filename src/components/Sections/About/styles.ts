@@ -39,13 +39,10 @@ const ImageWrapper = styled.div`
   span {
     width: 100% !important;
     height: 100% !important;
+  }
 
-    img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+  @media (max-width: 576px) {
+    width: 100%;
   }
 `;
 

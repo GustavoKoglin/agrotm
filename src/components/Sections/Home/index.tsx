@@ -16,8 +16,8 @@ const Home: FC = (): ReactElement => {
     <S.Banner id="home">
       <S.SectionBanner>
         <motion.div
-          initial={{ x: "-100vw", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ y: 1, opacity: 1 }}
           transition={{
             duration: 1,
             ease: "easeOut",
@@ -37,8 +37,8 @@ const Home: FC = (): ReactElement => {
         </motion.div>
 
         <motion.div
-          initial={{ x: "100vw", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ y: 1, opacity: 1 }}
           transition={{
             duration: 1,
             ease: "easeOut",
