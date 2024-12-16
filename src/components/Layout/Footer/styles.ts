@@ -25,6 +25,10 @@ export const FooterDescription = styled.div`
   color: #fff;
   font-weight: 400;
   font-size: 16px;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 `;
 
 export const FooterRights = styled.div`

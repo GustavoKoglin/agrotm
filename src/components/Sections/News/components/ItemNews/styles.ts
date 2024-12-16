@@ -41,6 +41,11 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     padding: 6px;
   }
+
+  /* Celulares */
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `;
 
 export const BannerNews = styled.div<BannerNewsProps>`
@@ -60,8 +65,8 @@ export const BannerNews = styled.div<BannerNewsProps>`
     min-height: 250px;
   }
 
-  @media (max-width: 480px) {
-    min-height: 200px;
+  @media (max-width: 576px) {
+    min-height: 300px;
   }
 `;
 
