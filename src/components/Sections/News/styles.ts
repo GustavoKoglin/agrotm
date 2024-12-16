@@ -39,11 +39,6 @@ export const SectionNews = styled.span`
     row-gap: 8px;
     padding-top: 16px;
   }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: center;
-  }
 `;
 
 export default {
