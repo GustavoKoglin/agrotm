@@ -5,10 +5,13 @@ import Header from "./Header";
 import S from "./styles";
 import { LayoutProps } from "./types";
 
-const Layout: FC<LayoutProps> = ({ children }): ReactElement => {
+const Layout: FC<LayoutProps> = ({
+  children,
+  externalPage = false,
+}): ReactElement => {
   return (
     <>
-      <Header />
+      <Header externalPage={externalPage} />
       <S.Content>{children}</S.Content>
       <Footer />
     </>

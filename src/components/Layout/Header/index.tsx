@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { FC, ReactElement, useState } from "react";
 
 import S from "./styles";
+import { HeaderProps } from "./types";
 
 const optionsMenu = [
   { label: "Home", key: "home" },
@@ -13,7 +14,7 @@ const optionsMenu = [
   { label: "Trabalhe Conosco", key: "workWithUs" },
 ];
 
-const Header: FC = (): ReactElement => {
+const Header: FC<HeaderProps> = ({ externalPage }): ReactElement => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScrollToSection = (key: string) => {
@@ -49,7 +50,10 @@ const Header: FC = (): ReactElement => {
               key={item.key}
               onClick={() => handleScrollToSection(item.key)}
             >
-              <a href={`#${item.key}`}>{item.label}</a>
+              {/* <a href={`#${item.key}`}>{item.label}</a> */}
+              <a href={`${externalPage ? "/" : `#${item.key}`}`}>
+                {item.label}
+              </a>
             </S.NavbarItem>
           ))}
         </S.NavbarContainer>
