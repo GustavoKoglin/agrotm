@@ -1,3 +1,5 @@
+import useDriversService, { DriversProps } from "~/lib/services/drivers";
+import useDriversStore from "~/lib/stores/useDriversStore";
 import { Button, Form, message, Steps } from "antd";
 import React, { FC, ReactElement, useState } from "react";
 
@@ -11,24 +13,15 @@ import S from "./styles";
 const { Step } = Steps;
 
 const ConnectaTM: FC = (): ReactElement => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm<DriversProps>();
   const [currentStep, setCurrentStep] = useState(0);
+  const { data } = useDriversStore();
 
   const handleSendData = async () => {
-    form.validateFields().then(async (values) => {
-      const payload = {
-        ...values,
-        active: true,
-      };
-
+    const service = useDriversService();
+    form.validateFields().then(async () => {
       try {
-        // const resposta = await service.salvar(payload);
-
-        // if (!resposta.sucesso) {
-        //   return;
-        // }
-
-        console.log("payload", payload);
+        await service.post(data);
 
         message.success("Motorista cadastrado com sucesso");
         return true;
