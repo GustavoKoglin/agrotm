@@ -13,7 +13,6 @@ import {
 import React, { FC, ReactElement, useEffect, useState } from "react";
 
 import ItemNews from "./components/ItemNews";
-import { dataMock } from "./mock";
 import S from "./styles";
 
 ChartJS.register(
@@ -26,7 +25,7 @@ ChartJS.register(
 );
 
 const News: FC = (): ReactElement => {
-  const [news, setNews] = useState<NewsRequestProps[]>(dataMock);
+  const [news, setNews] = useState<NewsRequestProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(6);
@@ -44,18 +43,18 @@ const News: FC = (): ReactElement => {
     setCurrentPage(page);
   };
 
-  // useEffect(() => {
-  //   const loadNews = async () => {
-  //     setLoading(true);
-  //     const fetchedNews = await fetchNews();
-  //     console.log("fetchedNews", fetchedNews);
+  useEffect(() => {
+    const loadNews = async () => {
+      setLoading(true);
+      const fetchedNews = await fetchNews();
+      console.log("fetchedNews", fetchedNews);
 
-  //     setNews(fetchedNews);
-  //     setLoading(false);
-  //   };
+      setNews(fetchedNews);
+      setLoading(false);
+    };
 
-  //   loadNews();
-  // }, []);
+    loadNews();
+  }, []);
 
   return (
     <S.Container id="news">
