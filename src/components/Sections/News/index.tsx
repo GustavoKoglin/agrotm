@@ -60,7 +60,7 @@ const News: FC = (): ReactElement => {
     <S.Container id="news">
       <TitleComponent>Notícias do setor Agropecuário</TitleComponent>
       <S.SectionNews>
-        {!loading ? (
+        {loading ? (
           <Spin />
         ) : (
           <>
