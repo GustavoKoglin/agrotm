@@ -10,7 +10,7 @@ const optionsMenu = [
   { label: "Sobre", key: "about" },
   { label: "Comodities", key: "commodities" },
   { label: "Notícias", key: "news" },
-  { label: "Contato", key: "contact" },
+  // { label: "Contato", key: "contact" },
   { label: "Trabalhe Conosco", key: "workWithUs" },
 ];
 
