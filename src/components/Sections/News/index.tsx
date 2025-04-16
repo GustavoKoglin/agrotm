@@ -1,5 +1,5 @@
 import TitleComponent from "~/components/Typography/Title";
-import { NewsArticle, useNews } from "~/lib/services/news";
+import { NewsRequestProps, useNews } from "~/lib/services/news";
 import { Pagination, Spin } from "antd";
 import {
   Chart as ChartJS,
@@ -25,7 +25,7 @@ ChartJS.register(
 );
 
 const News: FC = (): ReactElement => {
-  const [news, setNews] = useState<NewsArticle[]>([]);
+  const [news, setNews] = useState<NewsRequestProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(6);
@@ -64,7 +64,7 @@ const News: FC = (): ReactElement => {
           <Spin />
         ) : (
           <>
-            {paginatedNews.map((item, index) => (
+            {paginatedNews.map((item) => (
               <ItemNews key={item.article_id} data={item} />
             ))}
           </>

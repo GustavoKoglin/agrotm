@@ -1,5 +1,5 @@
 import NewsIMG from "~/assets/images/noticia.png";
-import { NewsArticle } from "~/lib/services/news";
+import { NewsRequestProps } from "~/lib/services/news";
 import Image from "next/image";
 import Link from "next/link";
 import React, { FC, ReactElement } from "react";
@@ -7,7 +7,7 @@ import React, { FC, ReactElement } from "react";
 import S from "./styles";
 
 interface ItemNewsProps {
-  data: NewsArticle;
+  data: NewsRequestProps;
 }
 
 const ItemNews: FC<ItemNewsProps> = ({ data }): ReactElement => {

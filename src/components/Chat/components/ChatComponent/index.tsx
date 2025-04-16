@@ -61,7 +61,7 @@ const ChatComponent: FC<ChatComponentProps> = ({ setIsOpenChat }) => {
   return (
     <S.Container>
       <S.Header>
-        <S.Username>{USERNAME}</S.Username>
+        <S.Username>Chat</S.Username>
 
         <S.CloseChat onClick={() => setIsOpenChat(false)}>
           <CloseOutlined />
