@@ -1,5 +1,5 @@
 import NewsIMG from "~/assets/images/noticia.png";
-import { NewsRequestProps } from "~/lib/services/news";
+import { NewsArticle } from "~/lib/services/news";
 import Image from "next/image";
 import Link from "next/link";
 import React, { FC, ReactElement } from "react";
@@ -7,7 +7,7 @@ import React, { FC, ReactElement } from "react";
 import S from "./styles";
 
 interface ItemNewsProps {
-  data: NewsRequestProps;
+  data: NewsArticle;
 }
 
 const ItemNews: FC<ItemNewsProps> = ({ data }): ReactElement => {
@@ -20,7 +20,6 @@ const ItemNews: FC<ItemNewsProps> = ({ data }): ReactElement => {
   return (
     <S.Container>
       <Link href={data.link} passHref>
-        {/* <a target="_blank"> */}
         {data.image_url ? (
           <S.BannerNews src={data.image_url} />
         ) : (
@@ -40,7 +39,6 @@ const ItemNews: FC<ItemNewsProps> = ({ data }): ReactElement => {
         {data.description && (
           <S.Content>{handleFormattContent(data.description)}</S.Content>
         )}
-        {/* </a> */}
       </Link>
     </S.Container>
   );

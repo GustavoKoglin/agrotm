@@ -17,6 +17,7 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
 import S from "./styles";
+import { CommodityItem, CommodityResponse } from "./types";
 
 ChartJS.register(
   CategoryScale,
@@ -28,80 +29,80 @@ ChartJS.register(
 );
 
 const Commodities: FC = (): ReactElement => {
-  const [commodityData, setCommodityData] = useState<CommodityData[]>([]);
-  const commodityService = useCommodityService();
-
-  // Função para buscar dados da API
-  const fetchCommodities = async () => {
-    const data = await commodityService.getCommodities();
-    setCommodityData(data);
-  };
+  const [commodities, setCommodities] = useState<CommodityItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const fetchCommodities = async () => {
+      try {
+        const res = await fetch("/api/commodities");
+        const json: CommodityResponse = await res.json();
+        setCommodities(json.root.row);
+      } catch (error) {
+        console.error("Erro ao buscar dados das commodities:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchCommodities();
   }, []);
 
-  // Filtra os dados para as commodities específicas
   const filterCommodity = (name: string) =>
-    commodityData.filter((item) => item.commodity === name);
+    commodities.filter(
+      (item) => item.cultura.toLowerCase() === name.toLowerCase()
+    );
 
-  const soja = filterCommodity("soja").map((item) => item.price);
-  const milho = filterCommodity("milho").map((item) => item.price);
-  const feijao = filterCommodity("feijao").map((item) => item.price);
+  const formatPreco = (preco: string) => parseFloat(preco.replace(",", "."));
 
-  const labels = filterCommodity("soja").map((item) => item.date);
+  const sojaData = filterCommodity("soja");
+  const milhoData = filterCommodity("milho");
+  const feijaoData = filterCommodity("feijão");
+  const bovinosData = filterCommodity("bovinos");
+  const milhosData = filterCommodity("milhos");
 
-  // Configuração do gráfico
-  const data = {
-    labels,
+  const chartData = {
+    labels: sojaData.map((item) => item.cidade),
     datasets: [
       {
         label: "Soja",
-        data: soja,
+        data: sojaData.map((item) => formatPreco(item.preco)),
         backgroundColor: "rgba(75, 192, 192, 0.6)",
         borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,
+        produtoInfo: sojaData.map((item) => item.produto),
       },
       {
         label: "Milho",
-        data: milho,
+        data: milhoData.map((item) => formatPreco(item.preco)),
         backgroundColor: "rgba(255, 159, 64, 0.6)",
         borderColor: "rgba(255, 159, 64, 1)",
         borderWidth: 1,
+        produtoInfo: milhoData.map((item) => item.produto),
       },
       {
         label: "Feijão",
-        data: feijao,
+        data: feijaoData.map((item) => formatPreco(item.preco)),
         backgroundColor: "rgba(153, 102, 255, 0.6)",
         borderColor: "rgba(153, 102, 255, 1)",
         borderWidth: 1,
-      },
-    ],
-  };
-
-  const mockCommoditiesData = {
-    labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
-    datasets: [
-      {
-        label: "Soja (USD/ton)",
-        data: [520, 540, 515, 530, 550, 560],
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
-        borderColor: "rgba(75, 192, 192, 1)",
-        borderWidth: 1,
+        produtoInfo: feijaoData.map((item) => item.produto),
       },
       {
-        label: "Milho (USD/ton)",
-        data: [320, 300, 310, 305, 315, 325],
-        backgroundColor: "rgba(255, 159, 64, 0.6)",
-        borderColor: "rgba(255, 159, 64, 1)",
+        label: "Bovinos",
+        data: bovinosData.map((item) => formatPreco(item.preco)),
+        backgroundColor: "#95420e",
+        borderColor: "#75350d",
         borderWidth: 1,
+        produtoInfo: bovinosData.map((item) => item.produto),
       },
       {
-        label: "Feijão (USD/ton)",
-        data: [410, 400, 420, 430, 440, 450],
-        backgroundColor: "rgba(153, 102, 255, 0.6)",
-        borderColor: "rgba(153, 102, 255, 1)",
+        label: "Milhos",
+        data: milhosData.map((item) => formatPreco(item.preco)),
+        backgroundColor: "#ddff00",
+        borderColor: "#bdd907",
         borderWidth: 1,
+        produtoInfo: milhosData.map((item) => item.produto),
       },
     ],
   };
@@ -111,6 +112,17 @@ const Commodities: FC = (): ReactElement => {
     plugins: {
       legend: { position: "top" as const },
       title: { display: true, text: "Cotações de Commodities" },
+      tooltip: {
+        callbacks: {
+          label: function (context: any) {
+            const index = context.dataIndex;
+            const dataset = context.dataset;
+            const produto = dataset.produtoInfo?.[index] || "";
+            const preco = context.formattedValue;
+            return `${produto}: R$ ${preco}`;
+          },
+        },
+      },
     },
   };
 
@@ -120,7 +132,7 @@ const Commodities: FC = (): ReactElement => {
 
       <S.WrapperContent>
         <S.SectionBar>
-          <Bar data={mockCommoditiesData} options={options} />
+          <Bar data={chartData} options={options} />
         </S.SectionBar>
 
         <S.SectionCurrency>

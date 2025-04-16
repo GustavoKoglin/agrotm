@@ -1,3 +1,4 @@
+import { ChatPopover } from "~/components/Chat";
 import Layout from "~/components/Layout";
 import {
   About,
@@ -18,6 +19,8 @@ const pages: FC = (): ReactElement => {
       <Commodities />
       <News />
       <WorkWithUs />
+
+      <ChatPopover />
     </Layout>
   );
 };
